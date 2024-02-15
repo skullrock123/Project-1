@@ -1,0 +1,32 @@
+.container-parent {
+  background: url("../../assets/images/bh-3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 90px;
+}
+
+.not-found-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-top: 30px;
+    margin-left: 10%;
+}
+
+.content {
+  box-shadow: 0 8px 8px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f6ebeb54;
+  border-radius: 5px;
+  padding: 30px;
+
+}
+.content h1{
+    font-size: 4rem;
+}
+.content h2{
+    font-size: 2.8rem;
+    /* margin-top: -30px; */
+}
+.content p{
+    font-size: 1rem;
+}

@@ -1,0 +1,95 @@
+<!-- <div class="bg">
+    <div id="container">
+        <div id="inner-container">
+            <h1>Add Tasks</h1>
+
+            <form [formGroup]="taskForm" (ngSubmit)="assignTask()">
+                <label for="memberSelect">Select Member:</label>
+                <select id="memberSelect" formControlName="selectedMember">
+                    <option *ngFor="let member of memberList" [value]="member.memberEmailId">{{member.memberEmailId}}
+                    </option>
+                </select>
+
+                <label for="taskSelect">Select Task:</label>
+                <select id="taskSelect" formControlName="selectedTask">
+                    <ng-container *ngFor="let task of taskList">
+                        <option [value]="task.taskId" *ngIf="!isTaskAssigned(task.taskId)">
+                            {{ task.taskId }}
+                        </option>
+                    </ng-container>
+                </select>
+
+                <button mat-raised-button type="submit" [disabled]="taskForm.invalid">Assign Task</button>
+                <button type="button" (click)="goToMain()">Move To Next</button>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="bg">
+    <app-navigation></app-navigation>
+    <div id="container">
+        <div id="inner-container">
+            <h1>Add Tasks</h1>
+
+
+            <label for="memberSelect">Select Member:</label>
+            <select id="memberSelect" [(ngModel)]="selectedMember">
+                <option *ngFor="let member of memberList" [value]="member.memberEmailId">{{member.memberEmailId}}
+                </option>
+            </select>
+
+            <label for="taskSelect">Select Task:</label>
+            <select id="taskSelect" [(ngModel)]="selectedTask">
+                <option *ngFor="let task of filteredTaskList" [value]="task.taskId">{{task.taskId}}</option>
+            </select>
+
+            <button mat-raised-button (click)="Submit()">Assign Task</button>
+            <button type="button" (click)="goToMain()">Move To Next</button>
+
+        </div>
+    </div>
+</div> -->
+<app-navigation></app-navigation>
+<div class="bg">
+  <h1>Assign Tasks to Members</h1>
+  <div id="container">
+    <mat-form-field appearance="outline">
+      <mat-label>Select Member</mat-label>
+      <mat-select [(ngModel)]="selectedMember">
+        <!-- Use mat-select instead of native select -->
+        <mat-option
+          *ngFor="let member of memberList"
+          [value]="member.memberEmailId"
+        >
+          {{ member.memberEmailId }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select Task</mat-label>
+      <mat-select [(ngModel)]="selectedTask">
+        <!-- Use mat-select instead of native select -->
+        <mat-option *ngFor="let task of filteredTaskList" [value]="task.taskId">
+          {{ task.taskName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div  class="button-spinner-container">
+      <button mat-raised-button color="primary" (click)="Submit()" *ngIf="!spinnerActive">
+        <!-- Use mat-raised-button instead of native button -->
+        Assign Task
+      </button>
+      <div class="spinner-container" *ngIf="spinnerActive">
+        <div class="spinner"></div>
+      </div>
+      <button mat-raised-button color="accent" type="button" (click)="goToMain()">
+        <!-- Use mat-raised-button instead of native button -->
+        Move To Next
+      </button>
+    </div>
+
+    
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="member-container">
+    <h2 class="heading">Add Members to Board</h2>
+    <div class="card-container">
+        <div *ngFor="let member of boardMembers; let i = index">
+           
+                <mat-form-field appearance="outline">
+                    <mat-label>Member Email</mat-label>
+                    <input matInput type="email" id="memberEmailId{{ i }}" [(ngModel)]="member.memberEmailId" required
+                        email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" />
+                    <mat-error *ngIf="!member.memberEmailId">Member Email is required</mat-error>
+                    <mat-error *ngIf="member.memberEmailId && !member.memberEmailId.valid">Email format is
+                        must</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Member Name</mat-label>
+                    <input matInput type="text" id="memberName{{ i }}" [(ngModel)]="member.memberName" required />
+                    <mat-error *ngIf="!member.memberName">Member Name is required</mat-error>
+                </mat-form-field>
+               
+            
+        </div>
+    </div>
+    <button  mat-raised-button type="button" class="cancel-btn" color="primary" 
+        (click)="onNoClick()">
+        Cancel
+    </button>
+    <button *ngIf="!spinnerActive" mat-raised-button class="f-btn" color="primary" [disabled]="!isFormValid()"
+        (click)="saveMembers()">
+        Save Members
+    </button>
+    <div class="spinner-container" *ngIf="spinnerActive">
+        <div class="spinner"></div>
+    </div>
+</div>

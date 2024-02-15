@@ -1,0 +1,76 @@
+.stages {
+  border: solid rgba(206, 206, 206, 0.619);
+  padding: 1rem;
+  margin: 1rem;
+  width: fit-content;
+  background-color: rgba(206, 206, 206, 0.259);
+  min-width: 20rem;
+  border-radius: 0.7rem;
+  box-shadow: 0px 16px 25px -1px rgba(0, 0, 0, 0.45);
+}
+.stage-name {
+  background-color: rgba(236, 236, 236, 0.905);
+  padding: 1rem;
+  border-radius: 0.7rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.tasks {
+  max-width: 20rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  background-color: rgba(206, 206, 206, 0.51);
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+}
+.image {
+  width: 3.5rem;
+  margin-right: 0.7rem;
+  margin-left: 0.5rem;
+}
+
+.task-name {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.task-priority {
+  width: 1.5rem;
+}
+
+.img-container {
+  margin-right: 0.5rem;
+}
+
+.options {
+  text-align: center;
+}
+
+.btn {
+  background-color: rgba(206, 206, 206, 0.51);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.add-button {
+  background-color: rgba(206, 206, 206, 0.51);
+}
+.date-para {
+  font-size: 0.8rem;
+  color: rgb(61, 61, 61);
+  margin-top: 0;
+}
+
+.date {
+  font-weight: 550;
+}

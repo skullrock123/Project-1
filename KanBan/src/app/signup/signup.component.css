@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "bellaboo";
+  src: url(./../../fonts/bellaboo-1.ttf);
+}
+@font-face {
+  font-family: "futura Display";
+  src: url(./../../fonts/Futura-Display.ttf);
+}
+@font-face {
+  font-family: "gulfs Display";
+  src: url(./../../fonts/GulfsDisplay-Expanded.ttf);
+}
+
+.signin-container {
+  background: url("./../../assets/images/bh-3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  padding-top: 4rem;
+}
+
+.kanban {
+  margin-left: 30px;
+  margin-top: 0px;
+  font-size: 40px;
+  font-family: cooper BT;
+}
+.form-container {
+  box-shadow: 0 8px 8px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f6ebeb54;
+  width: 550px;
+  margin: auto;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: -20px;
+  border-radius: 5px;
+}
+.form-container h2 {
+  margin-top: -10px;
+  font-size: 1.8rem;
+}
+.image-section {
+  width: 100%;
+  height: 200px;
+  margin-top: -10px;
+}
+.imagePreview {
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 2px solid black;
+  margin: auto;
+  border-radius: 50%;
+}
+.imagePreview img {
+  height: 150px;
+  width: 150px;
+}
+.image-take {
+  margin-top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.473);
+  cursor: pointer;
+  border-radius: 20px;
+  
+  /* width: 180px; */
+}
+
+.input-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  margin-top: 15px;
+}
+
+mat-form-field {
+  width: auto;
+  font-weight: 800;
+}
+
+mat-error {
+  font-size: 0.8rem;
+}
+
+/* .image-take{
+  width: 200px;
+  margin-left: 30px;
+  padding: 10px;
+} */
+/* .final-btn{
+  width: 100%;
+  display: block;
+  text-align: center;
+} */
+/* .final-btn span{
+  font-size: 20px;
+  font-family: futura Display;
+} */
+/* .final-btn button{
+  padding: 10px;
+  width: 100px;
+  font-size: 20px;
+  font-family: futura Display;
+} */
+
+input[type="file"]::file-selector-button {
+  border-radius: 4px;
+  padding: 0 16px;
+  height: 40px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.919);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  margin-right: 16px;
+  transition: background-color 200ms;
+}
+
+/* file upload button hover state */
+input[type="file"]::file-selector-button:hover {
+  background-color: #f3f4f6da;
+}
+
+/* file upload button active state */
+input[type="file"]::file-selector-button:active {
+  background-color: #e5e7ebd7;
+}
+button[type="submit"]
+{
+  margin-bottom: 10px;
+
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+width: 100%;
+}
+
+.spinner {
+  width: 25px;
+  height: 25px;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ------------------------ */

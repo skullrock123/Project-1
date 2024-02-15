@@ -1,0 +1,22 @@
+<app-navigation></app-navigation>
+<div class="container">
+  <div class="heading">
+    <h1>{{ boardName }}</h1>
+  </div>
+
+  <div *ngIf="!(stageList && stageList.length > 0)">
+    <div class="empty-para">
+        <h1>Please add stages and tasks to the board.</h1>
+        <p routerLink="/user/{{boardName}}/saveStages">Add stages</p>
+    </div>
+  </div>
+
+  <div class="mystages" cdkDropListGroup>
+    <app-stage
+      class="stage"
+      *ngFor="let stage of stageList"
+      [stage]="stage"
+      [boardNameReceived]="boardName"
+    ></app-stage>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<!-- <div class="member-container">
+    <h2>Add Members to Board</h2>
+    <div class="card-container">
+        <div  *ngFor="let member of boardMembers; let i = index" >
+            <div class="memebr-card">
+                <button class="delete-btn" [disabled]="boardMembers.length===1" (click)="removeNewMember(i)">X</button>
+                <label for="memberEmailId{{i}}">Member Email :</label>
+                <input type="email" id="memberEmailId{{i}}" [(ngModel)]="member.memberEmailId" required />
+                <label for="memberName{{i}}">Member Name :</label>
+                <input type="text" id="memberName{{i}}" [(ngModel)]="member.memberName" required />
+        
+                <button class="add-btn" *ngIf="i === boardMembers.length - 1" (click)="addNewMember()">Add Member</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="f-btn" (click)="saveMembers()">Save Members</button>
+
+</div> -->
+<app-navigation></app-navigation>
+<div class="member-container">
+  <h2 class="heading">Add Members to Board</h2>
+  <div class="card-container">
+    <div *ngFor="let member of boardMembers; let i = index">
+      <mat-card>
+        <mat-form-field appearance="outline">
+          <mat-label>Member Email</mat-label>
+          <input
+            matInput
+            type="email"
+            id="memberEmailId{{ i }}"
+            [(ngModel)]="member.memberEmailId"
+            required
+            email
+            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+          />
+          <mat-error *ngIf="!member.memberEmailId"
+            >Member Email is required</mat-error
+          >
+          <mat-error *ngIf="member.memberEmailId && !member.memberEmailId.valid"
+            >Email format is must</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Member Name</mat-label>
+          <input
+            matInput
+            type="text"
+            id="memberName{{ i }}"
+            [(ngModel)]="member.memberName"
+            required
+          />
+          <mat-error *ngIf="!member.memberName"
+            >Member Name is required</mat-error
+          >
+        </mat-form-field>
+        <div>
+          <button
+            mat-mini-fab
+            color="warn"
+            [disabled]="boardMembers.length === 1"
+            (click)="removeNewMember(i)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button
+            mat-mini-fab
+            color="primary"
+            *ngIf="i === boardMembers.length - 1"
+            [disabled]="!member.memberEmailId || !member.memberName"
+            (click)="addNewMember()"
+          >
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <button *ngIf="!spinnerActive"
+    mat-raised-button
+    class="f-btn"
+    color="primary"
+    [disabled]="!isFormValid()"
+    (click)="saveMembers()"
+  >
+    Save Members
+  </button>
+  <div class="spinner-container" *ngIf="spinnerActive">
+    <div class="spinner"></div>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+/* @font-face {
+  font-family: 'bellaboo';
+  src: url(./../../fonts/bellaboo-1.ttf);
+}
+@font-face {
+  font-family: 'futura Display';
+  src: url(./../../fonts/Futura-Display.ttf);
+}
+@font-face {
+  font-family: 'gulfs Display';
+  src: url(./../../fonts/GulfsDisplay-Expanded.ttf);
+}
+
+
+.login-container{
+  background: url('./../../assets/images/bh-2.jpeg');
+
+  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+}
+.app-name{
+  font-size: 80px;
+  margin-top: 10px;
+  margin-left: 900px;
+  font-family: gulfs Display;
+  text-shadow: 
+        2px 2px 0 #4ac0ef,  
+         2px 2px 0 #4ac0ef,
+        2px 2px 0 #4ac0ef,
+         2px 2px 0 #4ac0ef;
+  color: #383737;
+}
+.form-container{
+  width: 600px;
+  padding: 30px;
+  margin: 50px auto;
+  background-color:#74cdbd ;
+  text-align: center;
+  border: 4px solid black;
+}
+.form-h1{
+  color: antiquewhite;
+  text-align: center;
+  font-size: 45px;
+  font-family: cooper BT;
+  text-shadow: 
+        2px 2px 0 #000,  
+         2px 2px 0 #000,
+        2px 2px 0 #000,
+         2px 2px 0 #000; 
+
+}
+.form-box input{
+  border-radius: 50px;
+  padding: 10px;
+  width: 240px;
+
+}
+.in-box{
+  margin: 10px 0px;
+  font-size: 40px;
+  font-weight: 700;
+  font-family:bellaboo;
+}
+.in-box-e{
+  margin-left: 45px;
+}
+.in-box-p{
+  margin-left: 24px;
+}
+ button{
+  display: inline-block;
+  text-align: center;
+  width: 130px;
+  padding: 10px;
+  border-radius: 40px;
+  font-size: 30px;
+  
+  background-color: #1999e3;
+  margin-bottom: 10px;
+  font-family: futura Display;
+}
+button:hover{
+  background-color: #076eaa;
+  cursor: pointer;
+}
+.error{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  margin-left: 80px;
+}
+span{
+  font-size: larger;
+  font-weight:400;
+  font-family: futura Display;
+} */
+
+/* Style for login container */
+.login-container {
+  background: url("./../../assets/images/bh-3.png");
+  background-position: center;
+  background-repeat: repeat-y;
+  height: 70vh;
+  background-size: cover;
+  /* margin-top: -30px; */
+  padding-top: 4rem;
+}
+
+/* Style for app name */
+.app-name {
+  margin-bottom: 20px;
+  font-size: 40px;
+  margin-left: 30px;
+  font-family: cooper BT;
+}
+
+/* Style for form container */
+.form-container {
+  width: 300px;
+  margin: auto;
+  background-color: #f6ebeb54;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 8px 8px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Style for form title */
+.form-h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: Oswald;
+}
+
+/* Style for error messages */
+mat-error {
+  color: red;
+  font-size: 0.6rem;
+}
+
+button {
+  margin-top: 5px;
+}
+
+/* Style for login button */
+mat-form-field {
+  width: 100%;
+}
+
+/* Style for link to signup */
+span {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+width: 100%;
+margin-top: 15px;
+}
+
+.spinner {
+  width: 25px;
+  height: 25px;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

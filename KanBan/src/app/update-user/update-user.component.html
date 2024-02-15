@@ -1,0 +1,99 @@
+
+<app-navigation></app-navigation>
+<div class="update-container">
+
+    <div class="form-container">
+
+        <div class="image-box">
+            <img *ngIf="userData?.userImage?.type==''; then ifBlock else elseBlock" />
+            <ng-template #ifBlock>
+                <img src="./../../assets/images/userLogo.png" />
+            </ng-template>
+            <ng-template #elseBlock>
+                <img [src]="userData?.userImage?.url" />
+            </ng-template>
+        </div>
+
+
+
+        <div class="field-box">
+            <h1 class="h1-f">User Details</h1>
+            <form [formGroup]="userForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" formControlName="username" />
+                    <mat-error *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched">
+                        <!-- Display the error message if the username form control is invalid and touched -->
+                        Username is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput type="emailId" formControlName="emailId" readonly />
+                    <mat-error *ngIf="userForm.get('emailId')?.invalid && userForm.get('emailId')?.touched">
+                        <!-- Display the error message if the email form control is invalid and touched -->
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Profession</mat-label>
+                    <input matInput type="text" formControlName="profession" />
+                    <mat-error *ngIf="userForm.get('profession')?.invalid && userForm.get('profession')?.touched">
+                        <!-- Display the error message if the profession form control is invalid and touched -->
+                        Profession is required
+                    </mat-error>
+                </mat-form-field>
+                <button class="up-btn" mat-raised-button color="primary" (click)="updateUser()">
+                    Update User
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+
+        <mat-card>
+            <div class="label-btn-box">
+                <mat-label class="label">Board List</mat-label>
+                <button [disabled]="!isShowMember" color="warn" (click)="deleteBoard()" class="add-b-d-btn"
+                    mat-mini-fab><mat-icon>delete</mat-icon></button>
+            </div> 
+            <div class="block-1">
+                <mat-chip-listbox *ngFor="let board of boardList">
+                    <mat-chip-option color="primary" [value]="board.boardName"
+                        (selectionChange)="onBoardSelectionChange($event)"
+                        (click)="getMemberListOfSelectedBoard(board.boardName)">
+                        {{board.boardName}} 
+                    </mat-chip-option>
+                </mat-chip-listbox>
+            </div>
+        </mat-card>
+
+        <mat-card>
+            <div class="label-btn-box">
+            <mat-label class="label">Member List</mat-label>
+            <button  [disabled]="!isShowMember" color="primary" (click)="addNewMember()" class="add-m-a-btn" mat-mini-fab><mat-icon>add</mat-icon></button>
+            <!-- <button  [disabled]="!isShowTask" color="warn" (click)="deleteMember()" class="add-m-d-btn" mat-mini-fab><mat-icon>delete</mat-icon></button> -->
+            </div>
+            <div class="block-2" *ngIf="isShowMember">
+                <mat-chip-listbox name="memberName" *ngFor="let member of boardMemberList">
+                    <mat-chip-option color="primary" [value]="member.memberEmailId"
+                        (selectionChange)="onMemberSelectionChange($event)"
+                        (click)="getAllTaskOfMember(member)">{{member.memberEmailId}}</mat-chip-option>
+                </mat-chip-listbox>
+            </div>
+        </mat-card>
+
+        <mat-card>
+            <mat-label class="label">Task List</mat-label>
+            <div class="block-3" *ngIf="isShowTask">
+                <mat-chip-listbox *ngFor="let task of memberTaskList">
+                    <mat-chip-option color="primary">{{task.taskName}}</mat-chip-option>
+                </mat-chip-listbox>
+            </div>
+        </mat-card>
+
+    </div>
+
+
+
+</div>

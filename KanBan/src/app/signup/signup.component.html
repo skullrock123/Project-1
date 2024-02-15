@@ -1,0 +1,99 @@
+<!-- <div>
+
+    <h2>SignUp Form</h2>
+
+    <div class="imagePreview">
+        <img *ngIf="user.userImage.url" [src]="user.userImage.url" alt="user image" >
+    </div>
+
+
+    <label for="userImage">Profile Image</label><br>
+    <input type="file" id="userImage" (change)="onFileSelected($event)">
+
+    <form #UserForm="ngForm" (ngSubmit)="addNewUser()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email Id</mat-label>
+            <input matInput [(ngModel)]="user.emailId" name="emailId">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="user.password" name="password">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>UserName</mat-label>
+            <input matInput [(ngModel)]="user.username" name="username">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Profession</mat-label>
+            <input matInput [(ngModel)]="user.profession" name="profession">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">SignUp</button>
+
+    </form>
+
+</div> -->
+<app-nav></app-nav>
+
+<div class="signin-container">
+    <!-- <h1 class="kanban">KanBan</h1> -->
+    <div class="form-container">
+        <h2>SIGN UP</h2>
+        <form [formGroup]="userForm" (ngSubmit)="addNewUser()">
+            <div class="image-section">
+                
+                <div class="imagePreview">
+                    <img [src]="userForm.get('userImage')?.value?.url">
+                </div>
+                <input class="image-take" type="file" id="userImage" (change)="onFileSelected($event)">
+            </div>
+            <div class="input-fields">
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput formControlName="emailId" type="email" required>
+                    <mat-error *ngIf="userForm.get('emailId')?.hasError('required')">Email is required</mat-error>
+                    <mat-error *ngIf="userForm.get('emailId')?.hasError('email')">Invalid email format</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" type="password" required>
+                    <mat-error *ngIf="userForm.get('password')?.hasError('required')">Password is required</mat-error>
+                    <mat-error *ngIf="userForm.get('password')?.hasError('minlength')">Password must be at least 6
+                        characters</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="username" type="text" required>
+                    <mat-error *ngIf="userForm.get('username')?.hasError('required')">Username is required</mat-error>
+                    <mat-error *ngIf="userForm.get('username')?.hasError('pattern')">Should not start with number</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Profession</mat-label>
+                    <input matInput formControlName="profession" type="text" required>
+                    <mat-error *ngIf="userForm.get('profession')?.hasError('required')">Profession is required</mat-error>
+                    <mat-error *ngIf="userForm.get('profession')?.hasError('pattern')">Should not start with number</mat-error>
+                </mat-form-field>
+    
+    
+            </div>
+           
+            <div class="final-btn" *ngIf="!spinnerActive">
+                <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">SignUp</button><br>
+                <span>Already have an account? <a routerLink="/login">login</a></span>
+            </div>
+
+            <div class="spinner-container" *ngIf="spinnerActive">
+                <div class="spinner"></div>
+              </div>
+        </form>
+    </div>
+</div>
+

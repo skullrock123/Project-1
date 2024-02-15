@@ -1,0 +1,83 @@
+<!-- <div class="stage-container">
+    
+    <h2>Add Stage to Board</h2>
+    <div class="stage-card">
+        <div *ngFor="let stage of myStages; let i = index">
+            <div>
+                <label for="stageName{{i}}">Stage Name:</label>
+                <input type="text" id="stageName{{i}}" [(ngModel)]="stage.stageName" required />
+                <span *ngIf="stage.required" class="error-message">StageName is required</span>
+                <button [disabled]="myStages.length===1" (click)="removeNewStage(i)">Delete</button>
+            </div>
+            <button *ngIf="i === myStages.length - 1" (click)="addNewStage()"> + </button>
+        </div>
+    </div>
+    <button [disabled]="!areStagesValid()" (click)="addStages()">Save Stages</button>
+</div> -->
+
+<!-- <div>
+    <form #stageForm="ngForm" name="ngForm">
+        <h2>Add Stage to Board</h2>
+        <div *ngFor="let stage of myStages; let i = index">
+            <div>
+                <label for="stageName{{i}}">Stage Name:</label>
+                <input type="text" id="stageName{{i}}" [(ngModel)]="stage.stageName" 
+                    [name]="stage.stageName" required #stageName="ngModel"/>
+                <button [disabled]="myStages.length===1" (click)="removeNewStage(i)">Delete</button>
+            </div>
+            <button *ngIf="i === myStages.length - 1" (click)="addNewStage()"> + </button>
+        </div>
+        
+        <button (click)="addStages()">Save Stages</button>
+    </form>
+</div> -->
+
+<app-navigation></app-navigation>
+<div class="stage-container">
+  <h2>Add Stages To The Board</h2>
+  <div class="stage-card-cantainer">
+    <div *ngFor="let stage of myStages; let i = index">
+      <div class="input-box">
+        <mat-form-field appearance="outline">
+          <mat-label>Stage Name {{ i + 1 }}</mat-label>
+          <input
+            matInput
+            type="text"
+            id="stageName{{ i }}"
+            [(ngModel)]="stage.stageName"
+            required
+          />
+          <mat-error *ngIf="!stage.stageName">
+            Stage name is required
+          </mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="myStages.length === 1"
+          (click)="removeNewStage(i)"
+        >
+          X
+        </button>
+      </div>
+      <button
+        class="add-btn"
+        mat-raised-button
+        color="primary"
+        *ngIf="i === myStages.length - 1"
+        (click)="addNewStage()"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+  <button
+    class="f-btn"
+    mat-raised-button
+    color="primary"
+    [disabled]="!areStagesValid()"
+    (click)="addStages()"
+  >
+    Save Stages
+  </button>
+</div>

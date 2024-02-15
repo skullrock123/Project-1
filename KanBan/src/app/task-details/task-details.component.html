@@ -1,0 +1,21 @@
+<div mat-dialog-content class="container">
+  <h2>{{ data.task.taskName }}</h2>
+  <p><span>Description </span> : {{ data.task.taskDescription }}</p>
+  <p><span>Priority </span> : {{ data.task.priority }}</p>
+  <p>
+    <span>Assigned: </span>
+    {{ data.task.assigned ? 'Assigned &#10004;' : 'Not Assigned' }}
+    <span *ngIf="data.task.assigned==false">&nbsp;<button mat-raised-button (click)="doAssign(data.boardName)" >Do Assign</button></span>
+  </p>
+  <p>
+    <span>Creation Date </span> :
+    {{ data.task.creationDateTime | date : "dd/MMM/yyyy" }}
+  </p>
+  <p>
+    <span>Creation Time</span> :
+    {{ data.task.creationDateTime | date : "hh:mm a" }}
+  </p>
+</div>
+<div mat-dialog-actions class="container-2">
+  <button mat-button (click)="close()">Close</button>
+</div>

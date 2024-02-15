@@ -1,0 +1,99 @@
+<div class="formContainer">
+  <h1 class="heading">Create New Tasks</h1>
+
+  <form #taskForm="ngForm" (ngSubmit)="saveTask()">
+    <div class="formControl-container">
+      <div *ngFor="let task of taskList; let i = index" class="form-inputs">
+        <!-- <mat-form-field appearance="outline" class="custom-input">
+          <mat-label>Task ID</mat-label>
+          <input
+            #taskId="ngModel"
+            matInput
+            name="taskId{{ i }}"
+            type="text"
+            id="taskId{{ i }}"
+            [(ngModel)]="taskList[i].taskId"
+            required
+          />
+          <mat-error *ngIf="(taskId.errors?.['required']) && taskId.touched">
+            Task Id required !
+          </mat-error>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Task Name</mat-label>
+          <input
+            #taskName="ngModel"
+            matInput
+            name="taskName{{ i }}"
+            type="text"
+            id="taskName{{ i }}"
+            [(ngModel)]="taskList[i].taskName"
+            required
+          />
+          <mat-error
+            *ngIf="(taskName.errors?.['required']) && taskName.touched"
+          >
+            Task name required !
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Task Description</mat-label>
+          <textarea
+            matInput
+            #taskDescription="ngModel"
+            name="taskDescription{{ i }}"
+            id="taskDescription{{ i }}"
+            [(ngModel)]="taskList[i].taskDescription"
+            style="height: 3rem"
+          ></textarea>
+          <!-- <mat-error *ngIf="(taskDescription.errors?.['required']) && taskDescription.touched">
+                Task description required !
+              </mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <!-- <mat-label>Task Priority</mat-label> -->
+          <mat-select
+            id="taskPriority"
+            [(ngModel)]="taskList[i].priority"
+            name="priority"
+            placeholder="Task Priority"
+          >
+            <mat-option
+              *ngFor="let priority of priorityList"
+              [value]="priority"
+            >
+              {{ priority }}
+            </mat-option>
+          </mat-select>
+          <mat-error></mat-error>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline">
+              <mat-label>Creation Date</mat-label>
+              <input matInput [value]="formatDate(task.creationDate)" disabled />
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline">
+              <mat-label>Creation Time</mat-label>
+              <input matInput [value]="formatTime(task.creationTime)" disabled />
+            </mat-form-field> -->
+      </div>
+    </div>
+    <div class="btn">
+      <button mat-raised-button class="btn-cancel" type="button" (click)="onNoClick()">
+        Cancel
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="taskForm.invalid"
+      >
+        Save Task
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<app-navigation></app-navigation>
+  <div class="board-container">
+    
+    <div class="board-btn">
+      <button (click)="showInput = true" *ngIf="!showInput">Create Board</button>
+      <div class="spinner-container" *ngIf="spinnerActive">
+        <div class="spinner"></div>
+      </div>
+      <div *ngIf="showInput">
+        <input type="text" placeholder="Enter Board Name" name="boardName" id="boardName" [(ngModel)]="boardName" required>
+        <button (click)="createBoard()" [disabled]="boardName==''" >Create Board</button>
+      </div>
+    </div>
+    
+  </div>
+
+
+
+

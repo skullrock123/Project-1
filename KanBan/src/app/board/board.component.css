@@ -1,0 +1,71 @@
+
+
+@font-face {
+  font-family: "bellaboo";
+  src: url(./../../fonts/bellaboo-1.ttf);
+}
+@font-face {
+  font-family: "futura Display";
+  src: url(./../../fonts/Futura-Display.ttf);
+}
+@font-face {
+  font-family: "gulfs Display";
+  src: url(./../../fonts/GulfsDisplay-Expanded.ttf);
+}
+
+.board-container {
+  background: url("./../../assets/images/bh-3.png");
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  height: 70vh;
+}
+
+.board-btn {
+  text-align: center;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #37b6e9;
+  color: white;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  box-shadow: 2px 5px 10px 5px rgba(0, 0, 0, 0.155);
+  margin-top: 20vh;
+  font-family: futura Display;
+}
+
+input {
+  width: 300px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 1.5rem;
+  border: 2px solid #2d2c2c;
+  border-radius: 4px;
+  box-shadow: 2px 5px 10px 5px rgba(0, 0, 0, 0.155);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+width: 100%;
+margin-top: 20px;
+}
+
+.spinner {
+  width: 25px;
+  height: 25px;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

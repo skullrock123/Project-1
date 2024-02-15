@@ -1,0 +1,113 @@
+mat-toolbar,
+.container {
+  background-color: #fa67c6;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.463);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.brand {
+  margin-left: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.board-span {
+  color: #03e9f4;
+}
+.menu-button {
+  color: white;
+}
+.logout-span {
+  color: white;
+  cursor: pointer;
+}
+.profile-span {
+  color: white;
+  margin-right: 0.3rem;
+  cursor: pointer;
+}
+.profile-span:hover {
+  color: rgb(255, 255, 255);
+}
+.logout-span:hover {
+  color: white;
+}
+.logout-button {
+  background-color: white;
+}
+
+.sidenav {
+  width: 14rem;
+  padding-left: 0.5rem;
+}
+.menu-label {
+  background-color: rgba(128, 128, 128, 0.158);
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.board-name {
+  display: inline-block;
+  background-color: rgba(128, 128, 128, 0.158);
+  border-radius: 10px;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  font-family: Oswald;
+  letter-spacing: 1.3px;
+  font-size: medium;
+}
+.create-board {
+  background-color: rgba(128, 128, 128, 0.158);
+  border-radius: 10px;
+  margin-right: 0.5rem;
+  /* margin-left: 0.5rem; */
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: Oswald;
+  letter-spacing: 1.3px;
+  font-size: medium;
+  text-decoration: none;
+}
+.create-board-anchor {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+h5 {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+
+.username {
+  font-size: 1rem;
+  margin: 0px;
+  display: inline-block;
+  margin-right: 1.2rem;
+  margin-bottom: 0.313rem;
+  color: white;
+}
+
+.b-name{
+  cursor: pointer;
+}

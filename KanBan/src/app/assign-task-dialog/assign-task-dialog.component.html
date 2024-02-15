@@ -1,0 +1,52 @@
+<div class="bg">
+  <h1>Assign Tasks to Members</h1>
+  <div id="container">
+    <mat-form-field appearance="outline">
+      <mat-label>Select Member</mat-label>
+      <mat-select [(ngModel)]="selectedMember">
+        <!-- Use mat-select instead of native select -->
+        <mat-option
+          *ngFor="let member of memberList"
+          [value]="member.memberEmailId"
+        >
+          {{ member.memberEmailId }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select Task</mat-label>
+      <mat-select [(ngModel)]="selectedTask">
+        <!-- Use mat-select instead of native select -->
+        <mat-option *ngFor="let task of filteredTaskList" [value]="task.taskId">
+          {{ task.taskName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      *ngIf="!spinnerActive"
+      mat-raised-button
+      color="primary"
+      (click)="Submit()"
+  
+    >
+      <!-- Use mat-raised-button instead of native button -->
+      <span *ngIf="!spinnerActive">Assign Task</span>
+      <!-- <mat-spinner *ngIf="spinnerActive" diameter="20"></mat-spinner> -->
+    </button>
+    <div class="spinner-container" *ngIf="spinnerActive">
+      <div class="spinner"></div>
+    </div>
+    <button
+      type="button"
+      class="cancel-btn"
+      mat-raised-button
+      color="primary"
+      (click)="onNoClick()"
+    >
+      <!-- Use mat-raised-button instead of native button -->
+      Cancel
+    </button>
+  </div>
+</div>

@@ -1,0 +1,180 @@
+<!-- <div class="formContainer">
+  <form #taskForm="ngForm" (ngSubmit)="saveTask()">
+    <h1 class="add-task">Add Tasks</h1>
+
+
+     <div
+      class="formControl-container"
+      *ngFor="let task of taskList; let i = index"
+    >
+      <div class="formControl">
+        <label for="taskId{{ i }}">Task ID:</label>
+        <input
+          #taskId="ngModel"
+          name="taskId{{ i }}"
+          type="text"
+          id="taskId{{ i }}"
+          [(ngModel)]="taskList[i].taskId"
+          required
+        />
+        <mat-error *ngIf="(taskId.errors?.['required'])&&(taskId.touched)"
+          >Task Id required !</mat-error
+        >
+      </div>
+      <div class="formControl">
+        <label for="taskName{{ i }}">Task Name:</label>
+        <input
+          #taskName="ngModel"
+          name="taskName{{ i }}"
+          type="text"
+          id="taskName{{ i }}"
+          [(ngModel)]="taskList[i].taskName"
+          required=""
+        />
+        <mat-error *ngIf="(taskName.errors?.['required'])&&(taskName.touched)"
+          >Task name required !</mat-error
+        >
+      </div>
+      <div class="formControl">
+        <label for="taskPriority{{ i }}">Task Priority:</label>
+        <select
+          id="taskPriority"
+          [(ngModel)]="taskList[i].priority"
+          name="priority"
+        >
+          <option *ngFor="let priority of priorityList" [value]="priority">
+            {{ priority }}
+          </option>
+        </select>
+      </div>
+      <button [disabled]="taskList.length === 1" (click)="removeNewTask(i)">
+        Delete
+      </button>
+    </div>
+    <div class="btn">
+      <button type="button" (click)="addTask()" [disabled]="taskForm.invalid">
+        +
+      </button>
+      <button type="submit" [disabled]="taskForm.invalid">Save Task</button>
+    </div>
+  </form>
+</div> -->
+<app-navigation></app-navigation>
+<div class="formContainer">
+  <h1>Create New Tasks</h1>
+
+  <form #taskForm="ngForm" (ngSubmit)="saveTask()">
+    <div class="formControl-container">
+      <div *ngFor="let task of taskList; let i = index">
+        <mat-card>
+          <!-- <mat-form-field appearance="outline">
+            <mat-label>Task ID</mat-label>
+            <input
+              #taskId="ngModel"
+              matInput
+              name="taskId{{ i }}"
+              type="text"
+              id="taskId{{ i }}"
+              [(ngModel)]="taskList[i].taskId"
+              required
+            />
+            <mat-error *ngIf="(taskId.errors?.['required']) && taskId.touched">
+              Task Id required !
+            </mat-error>
+          </mat-form-field> -->
+
+          <mat-form-field appearance="outline">
+            <mat-label>Task Name</mat-label>
+            <input
+              #taskName="ngModel"
+              matInput
+              name="taskName{{ i }}"
+              type="text"
+              id="taskName{{ i }}"
+              [(ngModel)]="taskList[i].taskName"
+              required
+            />
+            <mat-error
+              *ngIf="(taskName.errors?.['required']) && taskName.touched"
+            >
+              Task name required !
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Task Description</mat-label>
+            <textarea
+              matInput
+              #taskDescription="ngModel"
+              name="taskDescription{{ i }}"
+              id="taskDescription{{ i }}"
+              [(ngModel)]="taskList[i].taskDescription"
+              style="height: 3rem"
+            ></textarea>
+            <!-- <mat-error *ngIf="(taskDescription.errors?.['required']) && taskDescription.touched">
+              Task description required !
+            </mat-error> -->
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <!-- <mat-label>Task Priority</mat-label> -->
+            <mat-select
+              id="taskPriority"
+              [(ngModel)]="taskList[i].priority"
+              name="priority{{i}}"
+              placeholder="Task Priority"
+            >
+              <mat-option
+                *ngFor="let priority of priorityList"
+                [value]="priority"
+              >
+                {{ priority }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- <mat-form-field appearance="outline">
+            <mat-label>Creation Date</mat-label>
+            <input matInput [value]="formatDate(task.creationDate)" disabled />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Creation Time</mat-label>
+            <input matInput [value]="formatTime(task.creationTime)" disabled />
+          </mat-form-field> -->
+
+          <div class="btn-box">
+            <button
+              mat-mini-fab
+              color="warn"
+              [disabled]="taskList.length === 1"
+              (click)="removeNewTask(i)"
+            >
+              <mat-icon class="material-symbols-outlined"> delete </mat-icon>
+            </button>
+            <button
+              mat-mini-fab
+              color="primary"
+              type="button"
+              (click)="addTask()"
+              *ngIf="i === taskList.length - 1"
+              [disabled]="taskForm.invalid"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="btn">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="taskForm.invalid"
+      >
+        Save Task
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+.formContainer {
+  padding: 2rem;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-weight: 500;
+}
+.btn {
+  margin-top: 1rem;
+}
+mat-card{
+  border: solic 1px black;
+}
+
+.btn-cancel {
+  margin-right: 1rem;
+}
+.mat-mdc-form-field-subscript-wrapper {
+  padding-bottom: 0 !important;
+  border: none;
+}

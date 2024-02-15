@@ -1,0 +1,90 @@
+
+
+<!-- <div>
+    <form [formGroup]="loginform" (ngSubmit)="userLogin()">
+        <h1>LogIn Form</h1>
+        <label for="emailId">EmailId</label>
+        <input type="text" id="emailId" formControlName="emailId"><br>
+        <mat-error *ngIf="loginform.get('emailId')?.hasError('required') && loginform.get('emailId')?.touched">Email is
+            required !</mat-error>
+        <mat-error *ngIf="loginform.get('emailId')?.hasError('pattern') && loginform.get('emailId')?.touched">Email is
+            invalid !</mat-error>
+        <label for="password">Password</label>
+        <input type="text" id="password" formControlName="password"><br>
+        <mat-error
+            *ngIf="loginform.get('password')?.hasError('required') && loginform.get('password')?.touched">Password is
+            required !</mat-error><br>
+        <button type="submit">Login</button><br>
+        <span>Do not have an account?<a routerLink="/signup">Signup</a></span>
+
+    </form>
+</div> -->
+
+<!-- <div class="login-container">
+    <h1 class="app-name">KanBan</h1>
+    <div class="form-container">
+        <h1 class="form-h1">LOGIN</h1>
+    
+        <form [formGroup]="loginform" (ngSubmit)="userLogin()" class="form-box">
+            <div class="in-box">
+                EmailId : <input class="in-box-e" type="text" id="emailId" formControlName="emailId"><br>
+                <mat-error class="error"
+                    *ngIf="loginform.get('emailId')?.hasError('required') && loginform.get('emailId')?.touched">Email is
+                    required !</mat-error>
+                <mat-error class="error"
+                    *ngIf="loginform.get('emailId')?.hasError('pattern') && loginform.get('emailId')?.touched">Email is
+                    invalid !</mat-error>
+            </div>
+            <div class="in-box">
+                Password : <input class="in-box-p" type="text" id="password" formControlName="password"><br>
+                <mat-error class="error"
+                    *ngIf="loginform.get('password')?.hasError('required') && loginform.get('password')?.touched">Password
+                    is
+                    required !</mat-error><br>
+            </div>
+            <button type="submit">Login</button><br>
+            <span>Do not have an account? <a routerLink="/signup">Signup</a></span>
+        </form>
+    </div>
+</div> -->
+<app-nav></app-nav>
+<div class="login-container">
+    <!-- <h1 class="app-name">KanBan</h1> -->
+    <div class="form-container">
+        <h1 class="form-h1">LOGIN</h1>
+
+        <form [formGroup]="loginform" (ngSubmit)="userLogin()" class="form-box">
+            <mat-form-field  appearance="outline">
+                <mat-label>EmailId</mat-label>
+                <input matInput type="text" id="emailId" formControlName="emailId" >
+                <mat-error
+                    *ngIf="loginform.get('emailId')?.hasError('required') && loginform.get('emailId')?.touched">Email is
+                    required !</mat-error>
+                <mat-error
+                    *ngIf="loginform.get('emailId')?.hasError('pattern') && loginform.get('emailId')?.touched">Email is
+                    invalid !</mat-error>
+            </mat-form-field>
+
+            <mat-form-field  appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" id="password" formControlName="password">
+                <mat-error
+                    *ngIf="loginform.get('password')?.hasError('required') && loginform.get('password')?.touched">Password
+                    is required !</mat-error>
+                    <mat-error *ngIf="loginform.get('password')?.hasError('minlength') && loginform.get('password')?.touched">Password
+                        should be 6 digit !</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button [disabled]="loginform.invalid" color="primary" type="submit" *ngIf="!spinnerActive">Login</button><br>
+            <div class="spinner-container" *ngIf="spinnerActive">
+                <div class="spinner"></div>
+              </div>
+        
+
+            <span>Do not have an account? <a routerLink="/signup">Signup</a></span>
+        </form>
+    </div>
+</div>
+
+
+

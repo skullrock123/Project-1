@@ -1,0 +1,73 @@
+<!-- <div class="example-container">
+  
+  <div class="stages"  cdkDropList [cdkDropListData]="this.stage.myTasks"   (cdkDropListDropped)="drop($event)" >
+  <h2>{{ stage.stageName }}</h2>
+
+    <div class="tasks"  *ngFor="let task of stage.myTasks; let i = index" cdkDrag >
+      <img class="image" src="../../assets/images/{{ task.taskImageAdd }}.jpg" />
+      <h4> {{ task.taskName }}</h4>
+      <img class="task-priority" src="../../assets/images/{{ task.priority }}.png" />
+    </div>
+  </div>
+</div> -->
+
+<div class="example-container">
+  
+  <div
+    class="stages"
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="this.stage.myTasks"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <h2 class="stage-name">{{ stage.stageName }}</h2>
+
+    <div
+      *ngFor="let task of stage.myTasks; let i = index"
+      cdkDrag
+      (click)="onClick(task)"
+    >
+      <div
+        class="tasks"
+        matTooltip="Click for more information"
+        matTooltipClass="mat-tooltip"
+        matTooltipShowDelay="200"
+        matTooltipHideDelay="200"
+      >
+        <img class="image" src="../../assets/images/{{ task.priority }}.png" />
+        <div>
+          <h4 class="task-name">{{ task.taskName }}</h4>
+          <p class="date-para">
+            <span class="date">Created On : </span
+            >{{ task.creationDateTime | date : "dd/MMM/yyyy" }}
+          </p>
+        </div>
+      </div>
+
+      <!-- <div>
+        <img class="task-priority" src="../../assets/images/{{ task.priority }}.png" />
+      </div> -->
+
+      <div class="options" *ngIf="selectedTask === task">
+        <button mat-icon-button class="btn" (click)="openEditDialog(task)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button class="btn" (click)="delete(task)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button class="btn" (click)="openDetailsDialog(task,boardNameReceived)">
+          <mat-icon>info</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center">
+      <a
+        mat-icon-button
+        class="add-button"
+        (click)="openAddTaskDialog(stage)"
+      >
+        <mat-icon>add</mat-icon>
+      </a>
+    </div>
+  </div>
+</div>
