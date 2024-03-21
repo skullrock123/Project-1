@@ -1,4 +1,3 @@
-# SE-Capstone-Project
-SE Capstone Project Repository.
+# KANBAN BOARD
+Kanban board is an advanced project management tool for effectively organising and managing tasks. It providing visual representation and tools for priritizing each task, assigning to members, notificatiion and much more.
 
-When cloning next time in angular add the following commands" npm i, ng add @angular/material
